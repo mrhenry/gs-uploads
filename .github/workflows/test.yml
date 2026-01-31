@@ -38,7 +38,6 @@ jobs:
     - uses: shivammathur/setup-php@44454db4f0199b8b9685a5d763dc37cbf79108e1 # v2.36
       with:
         php-version: ${{ matrix.php }}
-        tools: phpunit:9
         extensions: imagick
 
     - name: create bucket
@@ -72,4 +71,4 @@ jobs:
         GS_UPLOADS_BUCKET: test-bucket
         GS_UPLOADS_BUCKET_URL: "http://0.0.0.0:4443"
       run: |
-        phpunit
+        ./vendor/bin/phpunit
