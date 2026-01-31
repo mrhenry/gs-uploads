@@ -3,3 +3,4 @@
 *.phar
 .wp-test-root
 .phpunit.result.cache
+vendor
