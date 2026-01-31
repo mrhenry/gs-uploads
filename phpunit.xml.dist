@@ -1,5 +1,5 @@
 <phpunit
-	bootstrap="tests/bootstrap.php"
+	bootstrap=".tests/bootstrap.php"
 	backupGlobals="false"
 	colors="true"
 	convertErrorsToExceptions="true"
@@ -9,7 +9,7 @@
 	<testsuites>
 			<!-- Default test suite to run all tests -->
 			<testsuite>
-					<directory prefix="test-" suffix=".php">tests</directory>
+					<directory prefix="test-" suffix=".php">.tests</directory>
 			</testsuite>
 	</testsuites>
 	<filter>
@@ -22,6 +22,6 @@
 		</whitelist>
 	</filter>
 	<php>
-		<const name="WP_TESTS_PHPUNIT_POLYFILLS_PATH" value="./wp-test-root/php-unit-polyfills/"/>
+		<const name="WP_TESTS_PHPUNIT_POLYFILLS_PATH" value="./.wp-test-root/php-unit-polyfills/"/>
 	</php>
 </phpunit>

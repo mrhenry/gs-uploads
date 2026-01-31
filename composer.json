@@ -1,14 +1,14 @@
 {
-	"name": "mrhenry/s3-uploads",
+	"name": "mrhenry/gs-uploads",
 	"description": "WordPress plugin to store uploads on S3",
-	"homepage": "https://github.com/mrhenry/S3-Uploads",
+	"homepage": "https://github.com/mrhenry/gs-uploads",
 	"keywords": [
 		"wordpress"
 	],
 	"license": "GPL-2.0+",
 	"support"    : {
-		"issues": "https://github.com/mrhenry/S3-Uploads/issues",
-		"source": "https://github.com/mrhenry/S3-Uploads"
+		"issues": "https://github.com/mrhenry/gs-uploads/issues",
+		"source": "https://github.com/mrhenry/gs-uploads"
 	},
 	"type": "wordpress-plugin",
 	"require": {

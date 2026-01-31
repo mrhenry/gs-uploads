@@ -1,0 +1,28 @@
+version: 2
+updates:
+- package-ecosystem: "composer"
+  directory: "/"
+  cooldown:
+    default-days: 7
+  schedule:
+    interval: weekly
+    time: "01:00"
+    timezone: "Europe/Brussels"
+  groups:
+    production-dependencies:
+      dependency-type: "production"
+    development-dependencies:
+      dependency-type: "development"
+  open-pull-requests-limit: 5
+  versioning-strategy: increase
+  rebase-strategy: auto
+- package-ecosystem: "github-actions"
+  directory: "/"
+  cooldown:
+    default-days: 7
+  schedule:
+    interval: weekly
+    time: "01:00"
+    timezone: Europe/Brussels
+  open-pull-requests-limit: 5
+  rebase-strategy: auto
