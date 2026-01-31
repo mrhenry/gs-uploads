@@ -65,7 +65,7 @@ jobs:
         WP_VERSION: ${{ matrix.wordpress }}
         TMPDIR: ./wp-test-root
       run: |
-        bash bin/install-wp-tests.sh wp_tests_db wp_test password 127.0.0.1 $WP_VERSION
+        bash .github/bin/install-wp-tests.sh wp_tests_db wp_test password 127.0.0.1 $WP_VERSION
 
     - name: test
       env:
