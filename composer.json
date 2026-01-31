@@ -1,6 +1,6 @@
 {
 	"name": "mrhenry/gs-uploads",
-	"description": "WordPress plugin to store uploads on S3",
+	"description": "WordPress plugin to store uploads on Google Cloud Storage",
 	"homepage": "https://github.com/mrhenry/gs-uploads",
 	"keywords": [
 		"wordpress"
