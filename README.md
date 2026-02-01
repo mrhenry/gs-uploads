@@ -5,7 +5,23 @@
 Getting Set Up
 ==========
 
-```PHP
+`composer.json`
+
+```json
+{
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/mrhenry/gs-uploads"
+		}
+	],
+	"require": {
+		"mrhenry/gs-uploads": "...",
+	}
+}
+```
+
+```php
 define( 'GS_UPLOADS_BUCKET', 'my-bucket' );
 define( 'GS_UPLOADS_BUCKET_URL', 'https://my-bucket.example.com' ); // optional
 ```
