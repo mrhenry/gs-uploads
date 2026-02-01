@@ -17,6 +17,7 @@ jobs:
         os: [ubuntu-latest]
         php: ['8.1', '8.2']
         wordpress: ['6.6.4', '6.7.4']
+        mode: ['single-site', 'multi-site']
     services:
       gcs:
         image: ghcr.io/mrhenry/fake-gcs-server
@@ -67,8 +68,17 @@ jobs:
         bash .github/bin/install-wp-tests.sh wp_tests_db wp_test password 127.0.0.1 $WP_VERSION
 
     - name: test
+      if: matrix.mode == 'single-site'
       env:
         GS_UPLOADS_BUCKET: test-bucket
         GS_UPLOADS_BUCKET_URL: "http://0.0.0.0:4443"
       run: |
-        ./vendor/bin/phpunit
+        ./vendor/bin/phpunit -c .phpunit-single-site.xml.dist
+
+    - name: test
+      if: matrix.mode == 'multi-site'
+      env:
+        GS_UPLOADS_BUCKET: test-bucket
+        GS_UPLOADS_BUCKET_URL: "http://0.0.0.0:4443"
+      run: |
+        ./vendor/bin/phpunit -c .phpunit-multi-site.xml.dist

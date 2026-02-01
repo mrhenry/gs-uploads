@@ -1,0 +1,28 @@
+<phpunit
+	bootstrap=".tests/bootstrap.php"
+	backupGlobals="false"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	>
+	<testsuites>
+			<!-- Default test suite to run all tests -->
+			<testsuite>
+					<directory prefix="test-" suffix=".php">.tests</directory>
+			</testsuite>
+	</testsuites>
+	<filter>
+		<whitelist>
+			<directory suffix=".php">./inc</directory>
+			<file>./gs-uploads.php</file>
+			<exclude>
+				<directory suffix=".php">./lib</directory>
+			</exclude>
+		</whitelist>
+	</filter>
+	<php>
+		<const name="WP_TESTS_MULTISITE" value="1" />
+		<const name="WP_TESTS_PHPUNIT_POLYFILLS_PATH" value="./.wp-test-root/php-unit-polyfills/"/>
+	</php>
+</phpunit>

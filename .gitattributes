@@ -1,11 +1,12 @@
 # exclude .gitignore and similar from the generated tarball
-.composer.lock     export-ignore
-.editorconfig      export-ignore
-.fake-gcs-server   export-ignore
-.git*              export-ignore
-.github*           export-ignore
-.phpcs.xml.dist    export-ignore
-.tests*            export-ignore
-.vendor*           export-ignore
-.vscode            export-ignore
-phpunit.xml.dist   export-ignore
+.composer.lock                  export-ignore
+.editorconfig                   export-ignore
+.fake-gcs-server                export-ignore
+.git*                           export-ignore
+.github*                        export-ignore
+.phpcs.xml.dist                 export-ignore
+.phpunit-multi-site.xml.dist    export-ignore
+.phpunit-single-site.xml.dist   export-ignore
+.tests*                         export-ignore
+.vendor*                        export-ignore
+.vscode                         export-ignore

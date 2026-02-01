@@ -5,7 +5,7 @@ class GS_Uploads {
 
 	private string $bucket;
 	private string|null $bucket_url = null;
-	private Google\Cloud\Storage\StorageClient $storage;
+	private \Google\Cloud\Storage\StorageClient $storage;
 
 	/**
 	 * Get instance
@@ -20,10 +20,10 @@ class GS_Uploads {
 		self::$instance = new GS_Uploads(
 			defined( 'GS_UPLOADS_BUCKET' ) ? GS_UPLOADS_BUCKET : null,
 			defined( 'GS_UPLOADS_BUCKET_URL' ) ? GS_UPLOADS_BUCKET_URL : null,
-			new Google\Cloud\Storage\StorageClient(
+			new \Google\Cloud\Storage\StorageClient(
 				array(
 					'apiEndpoint'        => defined( 'GS_UPLOADS_BUCKET_URL' ) ? GS_UPLOADS_BUCKET_URL : null,
-					'credentialsFetcher' => defined( 'GS_UPLOADS_INSECURE_CREDENTIALS' ) && GS_UPLOADS_INSECURE_CREDENTIALS ? new Google\Auth\Credentials\InsecureCredentials() : null,
+					'credentialsFetcher' => defined( 'GS_UPLOADS_INSECURE_CREDENTIALS' ) && GS_UPLOADS_INSECURE_CREDENTIALS ? new \Google\Auth\Credentials\InsecureCredentials() : null,
 				)
 			)
 		);
@@ -31,7 +31,7 @@ class GS_Uploads {
 		return self::$instance;
 	}
 
-	public function __construct( string $bucket, string|null $bucket_url, Google\Cloud\Storage\StorageClient $storage ) {
+	public function __construct( string $bucket, string|null $bucket_url, \Google\Cloud\Storage\StorageClient $storage ) {
 		$this->bucket     = $bucket;
 		$this->bucket_url = $bucket_url;
 		$this->storage    = $storage;
@@ -44,9 +44,9 @@ class GS_Uploads {
 	public function setup() {
 		self::$instance->storage->registerStreamWrapper();
 
-		add_filter( 'upload_dir', array( $this, 'filter_upload_dir' ) );
-		add_action( 'delete_attachment', array( $this, 'delete_attachment_files' ) );
-		remove_filter( 'admin_notices', 'wpthumb_errors' );
+		\add_filter( 'upload_dir', array( $this, 'filter_upload_dir' ) );
+		\add_action( 'delete_attachment', array( $this, 'delete_attachment_files' ) );
+		\remove_filter( 'admin_notices', 'wpthumb_errors' );
 	}
 
 	/**
@@ -55,8 +55,8 @@ class GS_Uploads {
 	public function tear_down() {
 		self::$instance->storage->unregisterStreamWrapper();
 
-		remove_filter( 'upload_dir', array( $this, 'filter_upload_dir' ) );
-		remove_filter( 'delete_attachment', array( $this, 'delete_attachment_files' ) );
+		\remove_filter( 'upload_dir', array( $this, 'filter_upload_dir' ) );
+		\remove_filter( 'delete_attachment', array( $this, 'delete_attachment_files' ) );
 	}
 
 
@@ -85,8 +85,8 @@ class GS_Uploads {
 	 * @param number $post_id the post id
 	 */
 	public function delete_attachment_files( $post_id ) {
-		$meta = wp_get_attachment_metadata( $post_id );
-		$file = get_attached_file( $post_id );
+		$meta = \wp_get_attachment_metadata( $post_id );
+		$file = \get_attached_file( $post_id );
 
 		$deleted = array();
 
@@ -142,6 +142,6 @@ class GS_Uploads {
 			return $this->bucket_url;
 		}
 
-		return apply_filters( 'gs_uploads_bucket_url', 'https://storage.googleapis.com/' . $this->bucket );
+		return \apply_filters( 'gs_uploads_bucket_url', 'https://storage.googleapis.com/' . $this->bucket );
 	}
 }
