@@ -1,5 +1,5 @@
 # exclude .gitignore and similar from the generated tarball
-.composer.lock                  export-ignore
+composer.lock                   export-ignore
 .editorconfig                   export-ignore
 .fake-gcs-server                export-ignore
 .git*                           export-ignore
