@@ -14,7 +14,7 @@ class Test_WP_Image_Editor_Imagick extends WP_UnitTestCase {
 
 	public function test_save_image() {
 
-		$upload_dir = wp_upload_dir();
+		$upload_dir = \wp_upload_dir();
 		$path       = $upload_dir['basedir'] . '/canola.jpg';
 		copy( $this->image_path, $path );
 

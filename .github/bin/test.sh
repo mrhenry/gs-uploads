@@ -9,7 +9,7 @@ curl \
 	-H "Content-Type: application/json" \
 	"http://0.0.0.0:4443/storage/v1/b"
 
-GS_UPLOADS_BUCKET=test-bucket GS_UPLOADS_BUCKET_URL="http://0.0.0.0:4443" ./vendor/bin/phpunit -c .phpunit-single-site.xml.dist;
+XDEBUG_MODE=coverage GS_UPLOADS_BUCKET=test-bucket GS_UPLOADS_BUCKET_URL="http://0.0.0.0:4443" ./vendor/bin/phpunit -c .phpunit-single-site.xml.dist --coverage-html ./.coverage-report/;
 
 curl \
 	-X POST \

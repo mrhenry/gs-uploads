@@ -116,7 +116,7 @@ class Test_GS_Uploads_Stream_Wrapper extends WP_UnitTestCase {
 			'size'     => filesize( $path ),
 		);
 
-		$result = wp_handle_upload(
+		$result = \wp_handle_upload(
 			$file,
 			array(
 				'test_form' => false,

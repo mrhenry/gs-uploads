@@ -1,6 +1,7 @@
-.DS_Store
-.idea/
 *.phar
-.wp-test-root
+.DS_Store
+.coverage-report
+.idea/
 .phpunit.result.cache
+.wp-test-root
 vendor
