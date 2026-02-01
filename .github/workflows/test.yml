@@ -17,10 +17,11 @@ jobs:
         os: [ubuntu-latest]
         php: ['8.1', '8.2']
         wordpress: ['6.6.4', '6.7.4']
-        mode: ['single-site']
+        mode: ['multi-site']
         include:
-        - mode: multi-site
+        - mode: single-site
           php: '8.2'
+          wordpress: '6.7.4'
     services:
       gcs:
         image: ghcr.io/mrhenry/fake-gcs-server
