@@ -65,6 +65,10 @@ jobs:
       with:
         args: "--ignore-platform-reqs"
 
+    - name: lint
+      run: |
+        ./vendor/bin/phpcs gs-uploads.php ./inc ./.tests
+
     - name: setup wordpress tests
       env:
         WP_VERSION: ${{ matrix.wordpress }}

@@ -104,7 +104,7 @@ class GS_Uploads {
 					continue;
 				}
 
-				unlink( $intermediate_file );
+				unlink( $intermediate_file ); // phpcs:ignore
 				$deleted[ $intermediate_file ] = true;
 			}
 		}
@@ -118,7 +118,7 @@ class GS_Uploads {
 			return;
 		}
 
-		unlink( $file );
+		unlink( $file ); // phpcs:ignore
 		$deleted[ $file ] = true;
 
 		// Prevent duplicate deletes caused by wp delete actions

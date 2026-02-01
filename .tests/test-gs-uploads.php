@@ -17,7 +17,7 @@ class Test_GS_Uploads extends WP_UnitTestCase {
 
 		$this->assertEquals( 10, has_action( 'upload_dir', array( GS_Uploads::get_instance(), 'filter_upload_dir' ) ) );
 
-		$this->assertTrue( in_array( 'gs', stream_get_wrappers() ) );
+		$this->assertTrue( in_array( 'gs', stream_get_wrappers(), true ) );
 		GS_Uploads::get_instance()->tear_down();
 	}
 
@@ -31,7 +31,7 @@ class Test_GS_Uploads extends WP_UnitTestCase {
 
 		$this->assertFalse( has_action( 'upload_dir', array( GS_Uploads::get_instance(), 'filter_upload_dir' ) ) );
 
-		$this->assertFalse( in_array( 'gs', stream_get_wrappers() ) );
+		$this->assertFalse( in_array( 'gs', stream_get_wrappers(), true ) );
 	}
 
 	public function test_generate_attachment_metadata() {
