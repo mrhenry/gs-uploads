@@ -3,6 +3,8 @@
  * Bootstrap the plugin unit testing environment.
  */
 
+require 'vendor/autoload.php';
+
 require './.wp-test-root/wordpress-tests-lib/includes/functions.php';
 
 \tests_add_filter(

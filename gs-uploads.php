@@ -5,7 +5,6 @@
  * Author: Mr. Henry
  */
 
-require 'vendor/autoload.php';
 require_once __DIR__ . '/inc/class-gs-uploads.php';
 
 \add_action(
