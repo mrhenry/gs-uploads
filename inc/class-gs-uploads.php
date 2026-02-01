@@ -7,8 +7,6 @@ class GS_Uploads {
 	private string|null $bucket_url = null;
 	private Google\Cloud\Storage\StorageClient $storage;
 
-	public array $original_upload_dir = array();
-
 	/**
 	 * Get instance
 	 *
@@ -63,8 +61,6 @@ class GS_Uploads {
 
 
 	public function filter_upload_dir( $dirs ) {
-		$this->original_upload_dir = $dirs;
-
 		// dirs
 		$dirs['path']    = str_replace( WP_CONTENT_DIR, 'gs://' . $this->bucket, $dirs['path'] );
 		$dirs['basedir'] = str_replace( WP_CONTENT_DIR, 'gs://' . $this->bucket, $dirs['basedir'] );
