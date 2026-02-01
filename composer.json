@@ -5,8 +5,8 @@
 	"keywords": [
 		"wordpress"
 	],
-	"license": "GPL-2.0+",
-	"support"    : {
+	"license": "MIT",
+	"support": {
 		"issues": "https://github.com/mrhenry/gs-uploads/issues",
 		"source": "https://github.com/mrhenry/gs-uploads"
 	},
