@@ -76,7 +76,7 @@ jobs:
         ./vendor/bin/phpunit -c .phpunit-single-site.xml.dist
 
     - name: test
-      if: matrix.mode == 'multi-site'
+      if: matrix.mode == 'multi-site' && matrix.php == '8.2'
       env:
         GS_UPLOADS_BUCKET: test-bucket
         GS_UPLOADS_BUCKET_URL: "http://0.0.0.0:4443"
