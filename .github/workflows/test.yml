@@ -81,7 +81,7 @@ jobs:
       if: ${{ matrix.mode == 'single-site' }}
       env:
         GS_UPLOADS_BUCKET: test-bucket
-        GS_UPLOADS_BUCKET_URL: "http://0.0.0.0:4443"
+        GS_UPLOADS_API_ENDPOINT: "http://0.0.0.0:4443"
       run: |
         ./vendor/bin/phpunit -c .phpunit-single-site.xml.dist
 
@@ -89,6 +89,6 @@ jobs:
       if: ${{ matrix.mode == 'multi-site' }}
       env:
         GS_UPLOADS_BUCKET: test-bucket
-        GS_UPLOADS_BUCKET_URL: "http://0.0.0.0:4443"
+        GS_UPLOADS_API_ENDPOINT: "http://0.0.0.0:4443"
       run: |
         ./vendor/bin/phpunit -c .phpunit-multi-site.xml.dist

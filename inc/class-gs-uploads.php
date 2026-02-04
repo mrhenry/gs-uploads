@@ -22,7 +22,7 @@ class GS_Uploads {
 			defined( 'GS_UPLOADS_BUCKET_URL' ) ? GS_UPLOADS_BUCKET_URL : null,
 			new \Google\Cloud\Storage\StorageClient(
 				array(
-					'apiEndpoint'        => defined( 'GS_UPLOADS_BUCKET_URL' ) ? GS_UPLOADS_BUCKET_URL : null,
+					'apiEndpoint'        => defined( 'GS_UPLOADS_API_ENDPOINT' ) ? GS_UPLOADS_API_ENDPOINT : null,
 					'credentialsFetcher' => defined( 'GS_UPLOADS_INSECURE_CREDENTIALS' ) && GS_UPLOADS_INSECURE_CREDENTIALS ? new \Google\Auth\Credentials\InsecureCredentials() : null,
 				)
 			)

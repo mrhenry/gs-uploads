@@ -22,6 +22,10 @@ if ( getenv( 'GS_UPLOADS_BUCKET_URL' ) ) {
 	define( 'GS_UPLOADS_BUCKET_URL', getenv( 'GS_UPLOADS_BUCKET_URL' ) );
 }
 
+if ( getenv( 'GS_UPLOADS_API_ENDPOINT' ) ) {
+	define( 'GS_UPLOADS_API_ENDPOINT', getenv( 'GS_UPLOADS_API_ENDPOINT' ) );
+}
+
 define( 'GS_UPLOADS_INSECURE_CREDENTIALS', true );
 
 require './.wp-test-root/wordpress-tests-lib/includes/bootstrap.php';
