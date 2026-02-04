@@ -24,6 +24,7 @@ Getting Set Up
 ```php
 define( 'GS_UPLOADS_BUCKET', 'my-bucket' );
 define( 'GS_UPLOADS_BUCKET_URL', 'https://my-bucket.example.com' ); // optional
+define( 'GS_UPLOADS_PROJECT_ID', 'example' ); // optional
 ```
 
 Offline Development

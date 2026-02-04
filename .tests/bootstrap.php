@@ -26,6 +26,10 @@ if ( getenv( 'GS_UPLOADS_API_ENDPOINT' ) ) {
 	define( 'GS_UPLOADS_API_ENDPOINT', getenv( 'GS_UPLOADS_API_ENDPOINT' ) );
 }
 
+if ( getenv( 'GS_UPLOADS_PROJECT_ID' ) ) {
+	define( 'GS_UPLOADS_PROJECT_ID', getenv( 'GS_UPLOADS_PROJECT_ID' ) );
+}
+
 define( 'GS_UPLOADS_INSECURE_CREDENTIALS', true );
 
 require './.wp-test-root/wordpress-tests-lib/includes/bootstrap.php';

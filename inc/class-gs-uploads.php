@@ -17,14 +17,25 @@ class GS_Uploads {
 			return self::$instance;
 		}
 
+		$config = array();
+
+		if ( defined( 'GS_UPLOADS_INSECURE_CREDENTIALS' ) && GS_UPLOADS_INSECURE_CREDENTIALS ) {
+			$config['credentialsFetcher'] = new \Google\Auth\Credentials\InsecureCredentials();
+		}
+
+		if ( defined( 'GS_UPLOADS_API_ENDPOINT' ) ) {
+			$config['apiEndpoint'] = GS_UPLOADS_API_ENDPOINT;
+		}
+
+		if ( defined( 'GS_UPLOADS_PROJECT_ID' ) ) {
+			$config['projectId'] = GS_UPLOADS_PROJECT_ID;
+		}
+
 		self::$instance = new GS_Uploads(
 			defined( 'GS_UPLOADS_BUCKET' ) ? GS_UPLOADS_BUCKET : null,
 			defined( 'GS_UPLOADS_BUCKET_URL' ) ? GS_UPLOADS_BUCKET_URL : null,
 			new \Google\Cloud\Storage\StorageClient(
-				array(
-					'apiEndpoint'        => defined( 'GS_UPLOADS_API_ENDPOINT' ) ? GS_UPLOADS_API_ENDPOINT : null,
-					'credentialsFetcher' => defined( 'GS_UPLOADS_INSECURE_CREDENTIALS' ) && GS_UPLOADS_INSECURE_CREDENTIALS ? new \Google\Auth\Credentials\InsecureCredentials() : null,
-				)
+				$config
 			)
 		);
 
