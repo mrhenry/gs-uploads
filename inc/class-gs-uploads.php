@@ -57,7 +57,6 @@ class GS_Uploads {
 
 		\add_filter( 'upload_dir', array( $this, 'filter_upload_dir' ) );
 		\add_action( 'delete_attachment', array( $this, 'delete_attachment_files' ) );
-		\remove_filter( 'admin_notices', 'wpthumb_errors' );
 	}
 
 	/**
