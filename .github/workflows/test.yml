@@ -16,12 +16,12 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         php: ['8.1', '8.2']
-        wordpress: ['6.6.4', '6.7.4']
+        wordpress: ['6.6.4', '6.7.4', '6.9.1']
         mode: ['multi-site']
         include:
         - os: ubuntu-latest
           php: '8.2'
-          wordpress: '6.7.4'
+          wordpress: '6.9.1'
           mode: single-site
     services:
       gcs:
