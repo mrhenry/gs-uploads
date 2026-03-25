@@ -39,9 +39,11 @@ class Test_WP_Image_Editor_Imagick extends WP_UnitTestCase {
 				120,
 				2,
 				'width="100" height="120"',
-				'bits'     => 8,
-				'channels' => 3,
-				'mime'     => 'image/jpeg',
+				'bits'        => 8,
+				'channels'    => 3,
+				'mime'        => 'image/jpeg',
+				'width_unit'  => 'px',
+				'height_unit' => 'px',
 			),
 			$image
 		);

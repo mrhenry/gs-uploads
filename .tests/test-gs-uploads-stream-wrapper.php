@@ -79,9 +79,11 @@ class Test_GS_Uploads_Stream_Wrapper extends WP_UnitTestCase {
 				480,
 				2,
 				'width="640" height="480"',
-				'bits'     => 8,
-				'channels' => 3,
-				'mime'     => 'image/jpeg',
+				'bits'        => 8,
+				'channels'    => 3,
+				'mime'        => 'image/jpeg',
+				'width_unit'  => 'px',
+				'height_unit' => 'px',
 			),
 			$image
 		);
