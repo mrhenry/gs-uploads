@@ -73,17 +73,19 @@ class Test_GS_Uploads_Stream_Wrapper extends WP_UnitTestCase {
 
 		$image = getimagesize( $file );
 
+		// Only php 8.5
+		unset( $image['width_unit'] );
+		unset( $image['height_unit'] );
+
 		$this->assertEquals(
 			array(
 				640,
 				480,
 				2,
 				'width="640" height="480"',
-				'bits'        => 8,
-				'channels'    => 3,
-				'mime'        => 'image/jpeg',
-				'width_unit'  => 'px',
-				'height_unit' => 'px',
+				'bits'     => 8,
+				'channels' => 3,
+				'mime'     => 'image/jpeg',
 			),
 			$image
 		);

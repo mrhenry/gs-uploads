@@ -33,17 +33,19 @@ class Test_WP_Image_Editor_Imagick extends WP_UnitTestCase {
 
 		$image = getimagesize( $status['path'] );
 
+		// Only php 8.5
+		unset( $image['width_unit'] );
+		unset( $image['height_unit'] );
+
 		$this->assertEquals(
 			array(
 				100,
 				120,
 				2,
 				'width="100" height="120"',
-				'bits'        => 8,
-				'channels'    => 3,
-				'mime'        => 'image/jpeg',
-				'width_unit'  => 'px',
-				'height_unit' => 'px',
+				'bits'     => 8,
+				'channels' => 3,
+				'mime'     => 'image/jpeg',
 			),
 			$image
 		);
