@@ -13,7 +13,7 @@
 	"type": "wordpress-plugin",
 	"require": {
 		"composer/installers": "^1.0 || ^2.0",
-		"google/cloud-storage": "^1.50"
+		"google/cloud-storage": "^1.51"
 	},
 	"archive": {
 		"exclude": [
