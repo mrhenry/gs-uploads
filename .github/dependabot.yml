@@ -16,6 +16,10 @@ updates:
   open-pull-requests-limit: 5
   versioning-strategy: increase
   rebase-strategy: auto
+  ignore:
+    - dependency-name: phpunit/phpunit
+      update-types:
+        - version-update:semver-major
 - package-ecosystem: "github-actions"
   directory: "/"
   cooldown:
