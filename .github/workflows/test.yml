@@ -22,15 +22,18 @@ jobs:
         - os: ubuntu-latest
           php: '8.2'
           wordpress: '6.9.7'
+          mode: multi-site
         - os: ubuntu-latest
           php: '8.3'
           wordpress: '6.9.7'
+          mode: multi-site
         - os: ubuntu-latest
           php: '8.5'
           wordpress: '6.9.7'
           mode: multi-site
         # single site tests
         - os: ubuntu-latest
+          php: '8.4'
           wordpress: '6.9.7'
           mode: single-site
     services:
