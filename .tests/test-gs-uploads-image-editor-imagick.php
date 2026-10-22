@@ -4,6 +4,8 @@ class Test_WP_Image_Editor_Imagick extends WP_UnitTestCase {
 	private $image_path = __DIR__ . '/data/canola.jpg';
 
 	protected function setUp(): void {
+		GS_Uploads::get_instance()->setup();
+		parent::setUp();
 		require_once ABSPATH . WPINC . '/class-wp-image-editor.php';
 		require_once ABSPATH . WPINC . '/class-wp-image-editor-imagick.php';
 

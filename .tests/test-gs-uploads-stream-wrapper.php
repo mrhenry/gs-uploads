@@ -4,9 +4,11 @@ class Test_GS_Uploads_Stream_Wrapper extends WP_UnitTestCase {
 
 	protected function setUp(): void {
 		GS_Uploads::get_instance()->setup();
+		parent::setUp();
 	}
 
 	protected function tearDown(): void {
+		parent::tearDown();
 		GS_Uploads::get_instance()->tear_down();
 	}
 

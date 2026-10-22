@@ -2,9 +2,10 @@
 
 class Test_GS_Uploads extends WP_UnitTestCase {
 
-	protected function setUp(): void {}
-
-	protected function tearDown(): void {}
+	protected function setUp(): void {
+		GS_Uploads::get_instance()->setup();
+		parent::setUp();
+	}
 
 	/**
 	 * Test gs uploads sets up all the necessary hooks
