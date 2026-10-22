@@ -53,6 +53,8 @@ class GS_Uploads {
 	 * Setup the hooks, urls filtering etc for GS Uploads
 	 */
 	public function setup() {
+		stream_context_set_option( stream_context_get_default(), 'gs', 'chunkSize', 2 * 1024 * 1024 );
+
 		self::$instance->storage->registerStreamWrapper();
 
 		\add_filter( 'upload_dir', array( $this, 'filter_upload_dir' ) );
