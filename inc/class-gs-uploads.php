@@ -131,20 +131,20 @@ class GS_Uploads {
 		unlink( $file ); // phpcs:ignore
 		$deleted[ $file ] = true;
 
-		// Prevent duplicate deletes caused by wp delete actions
-		\add_filter(
-			'wp_delete_file',
-			function ( $file_wp_wants_to_delete ) use ( $deleted ) {
-				// File already deleted, prevent duplicate 'unlink' calls
-				if ( $deleted[ $file_wp_wants_to_delete ] ?? false ) {
-					return false;
-				}
+		$callback = null;
+		$callback = function ( $file_to_delete ) use ( &$callback, $deleted, $file ) {
+			if ( $file_to_delete === $file ) {
+				\remove_filter( 'wp_delete_file', $callback, 10 );
+			}
 
-				return $file_wp_wants_to_delete;
-			},
-			10,
-			1
-		);
+			if ( $deleted[ $file_to_delete ] ?? false ) {
+				return false;
+			}
+
+			return $file_to_delete;
+		};
+
+		\add_filter( 'wp_delete_file', $callback, 10, 1 );
 	}
 
 	public function get_gs_url() {
