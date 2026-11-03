@@ -116,6 +116,11 @@ class GS_Uploads {
 					continue;
 				}
 
+				$intermediate_file = \apply_filters( 'wp_delete_file', $intermediate_file );
+				if ( empty( $intermediate_file ) ) {
+					continue;
+				}
+
 				// Prevent duplicate deletes caused by sizes hacks
 				if ( $deleted[ $intermediate_file ] ?? false ) {
 					continue;
@@ -132,16 +137,29 @@ class GS_Uploads {
 			return;
 		}
 
+		$file = \apply_filters( 'wp_delete_file', $file );
+		if ( empty( $file ) ) {
+			return;
+		}
+
 		if ( $deleted[ $file ] ?? false ) {
 			return;
 		}
 
-		if ( unlink( $file ) ) { // phpcs:ignore
-			$deleted[ $file ] = true;
+		if ( ! unlink( $file ) ) { // phpcs:ignore
+			return;
 		}
+
+		$deleted[ $file ] = true;
 
 		$callback = null;
 		$callback = function ( $file_to_delete ) use ( &$callback, $deleted, $file ) {
+			if ( false === $file_to_delete || '' === $file_to_delete ) {
+				\remove_filter( 'wp_delete_file', $callback, 10 );
+
+				return $file_to_delete;
+			}
+
 			if ( $file_to_delete === $file ) {
 				\remove_filter( 'wp_delete_file', $callback, 10 );
 			}

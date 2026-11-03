@@ -95,4 +95,27 @@ class Test_GS_Uploads extends WP_UnitTestCase {
 			$this->assertFalse( file_exists( $upload_dir['path'] . '/' . $size['file'] ), sprintf( 'File %s was not deleted.', $upload_dir['path'] . '/' . $size['file'] ) );
 		}
 	}
+
+	public function test_delete_respects_wp_delete_file_filter() {
+		$upload_dir = \wp_upload_dir();
+		$test_file  = $upload_dir['path'] . '/canola-' . wp_generate_uuid4() . '.jpg';
+
+		copy( __DIR__ . '/data/canola.jpg', $test_file );
+
+		$attachment_id = WP_UnitTestCase_Base::factory()->attachment->create_object(
+			$test_file,
+			0,
+			array(
+				'post_mime_type' => 'image/jpeg',
+			)
+		);
+
+		\add_filter( 'wp_delete_file', '__return_false' );
+		\wp_delete_attachment( $attachment_id, true );
+		\remove_filter( 'wp_delete_file', '__return_false' );
+
+		$this->assertTrue( file_exists( $test_file ) );
+
+		unlink( $test_file ); // phpcs:ignore
+	}
 }
