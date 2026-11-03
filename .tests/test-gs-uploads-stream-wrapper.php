@@ -44,14 +44,7 @@ class Test_GS_Uploads_Stream_Wrapper extends WP_UnitTestCase {
 	}
 
 	public function test_rename_via_stream_wrapper_fails_on_invalid_permission() {
-
-		// TODO: https://github.com/fsouza/fake-gcs-server/issues/2124
-		// copy( __DIR__ . '/data/canola.jpg', 'gs://' . GS_UPLOADS_BUCKET . '/canola.jpg' );
-		// $result = @rename( 'gs://' . GS_UPLOADS_BUCKET . '/canola.jpg', 'gs://not-a-bucket-c1dd5b42-45be-4a85-b82f-e0b0815d69e5/canola.jpg' );
-		//
-		// $this->assertFalse( $result );
-
-		$this->assertTrue( true );
+		$this->markTestSkipped( 'https://github.com/fsouza/fake-gcs-server/issues/2124' );
 	}
 
 	public function test_unlink_via_stream_wrapper() {
@@ -62,7 +55,7 @@ class Test_GS_Uploads_Stream_Wrapper extends WP_UnitTestCase {
 		$this->assertFalse( file_exists( 'gs://' . GS_UPLOADS_BUCKET . '/canola.jpg' ) );
 	}
 
-	public function get_file_exists_via_stream_wrapper() {
+	public function test_file_exists_via_stream_wrapper() {
 		copy( __DIR__ . '/data/canola.jpg', 'gs://' . GS_UPLOADS_BUCKET . '/canola.jpg' );
 		$this->assertTrue( file_exists( 'gs://' . GS_UPLOADS_BUCKET . '/canola.jpg' ) );
 		$this->assertFalse( file_exists( 'gs://' . GS_UPLOADS_BUCKET . '/canola-missing.jpg' ) );
