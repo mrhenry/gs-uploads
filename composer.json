@@ -19,7 +19,21 @@
 		"exclude": [
 			".git",
 			".github",
+			".gitattributes",
+			".gitignore",
+			".coverage-report",
+			".DS_Store",
+			".editorconfig",
+			".fake-gcs-server",
+			".phpcs.xml.dist",
+			".phpunit-multi-site.xml.dist",
+			".phpunit-single-site.xml.dist",
+			".phpunit.result.cache",
+			".tests",
+			".vscode",
+			".wp-test-root",
 			"tests",
+			"vendor",
 			"composer.lock"
 		]
 	},

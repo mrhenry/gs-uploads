@@ -1,4 +1,8 @@
 # exclude .gitignore and similar from the generated tarball
+.coverage-report                export-ignore
+.DS_Store                       export-ignore
+.wp-test-root                   export-ignore
+vendor                          export-ignore
 composer.lock                   export-ignore
 .editorconfig                   export-ignore
 .fake-gcs-server                export-ignore
