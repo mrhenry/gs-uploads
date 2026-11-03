@@ -31,6 +31,11 @@ class GS_Uploads {
 			$config['projectId'] = GS_UPLOADS_PROJECT_ID;
 		}
 
+		$config['requestTimeout'] = defined( 'GS_UPLOADS_REQUEST_TIMEOUT' ) ? max( 0, (int) GS_UPLOADS_REQUEST_TIMEOUT ) : 10;
+		$config['restOptions']    = array(
+			'connect_timeout' => 5,
+		);
+
 		self::$instance = new GS_Uploads(
 			defined( 'GS_UPLOADS_BUCKET' ) ? GS_UPLOADS_BUCKET : null,
 			defined( 'GS_UPLOADS_BUCKET_URL' ) ? GS_UPLOADS_BUCKET_URL : null,

@@ -25,6 +25,7 @@ Getting Set Up
 define( 'GS_UPLOADS_BUCKET', 'my-bucket' );
 define( 'GS_UPLOADS_BUCKET_URL', 'https://my-bucket.example.com' ); // optional
 define( 'GS_UPLOADS_PROJECT_ID', 'example' ); // optional
+define( 'GS_UPLOADS_REQUEST_TIMEOUT', 10 ); // optional, seconds; 0 disables the timeout
 ```
 
 Offline Development
