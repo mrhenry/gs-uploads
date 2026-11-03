@@ -116,8 +116,9 @@ class GS_Uploads {
 					continue;
 				}
 
-				unlink( $intermediate_file ); // phpcs:ignore
-				$deleted[ $intermediate_file ] = true;
+				if ( unlink( $intermediate_file ) ) { // phpcs:ignore
+					$deleted[ $intermediate_file ] = true;
+				}
 			}
 		}
 
@@ -130,8 +131,9 @@ class GS_Uploads {
 			return;
 		}
 
-		unlink( $file ); // phpcs:ignore
-		$deleted[ $file ] = true;
+		if ( unlink( $file ) ) { // phpcs:ignore
+			$deleted[ $file ] = true;
+		}
 
 		$callback = null;
 		$callback = function ( $file_to_delete ) use ( &$callback, $deleted, $file ) {
